@@ -39,7 +39,7 @@ METRICS = [
     ("Signups completed", "signups_completed"),
     ("Contribute clicks", "contribute_clicks"),
     ("Payment initiated", "payment_initiated"),
-    ("Wall posts", "wall_posts"),
+    ("Wall shares", "wall_posts"),
     ("Gift messages", "gift_messages"),
     ("Pages shared", "pages_shared"),
 ]
