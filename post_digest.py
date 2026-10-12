@@ -33,6 +33,7 @@ ENDPOINT = os.environ.get("POSTHOG_ENDPOINT", "hiphiphip_digest_metrics")
 # (label, column base name) in display order. Window suffix is added at runtime.
 METRICS = [
     ("Page views", "page_views"),
+    ("Unique viewers", "unique_viewers"),
     ("Pages created", "pages_created"),
     ("Signups started", "signups_started"),
     ("Signups completed", "signups_completed"),
