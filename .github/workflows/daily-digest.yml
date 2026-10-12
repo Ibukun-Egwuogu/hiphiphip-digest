@@ -2,9 +2,9 @@ name: HipHipHip daily digest
 
 on:
   schedule:
-    # 07:00 UTC = 08:00 Africa/Lagos, every day.
+    # 08:00 UTC = 09:00 Africa/Lagos, every day.
     # GitHub cron is UTC only and can be delayed a few minutes under load.
-    - cron: "0 7 * * *"
+    - cron: "0 8 * * *"
   workflow_dispatch: {}   # lets you run it by hand from the Actions tab to test
 
 jobs:
