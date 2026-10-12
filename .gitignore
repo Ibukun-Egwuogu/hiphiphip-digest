@@ -1,0 +1,3 @@
+# Python bytecode cache (build artifact, never committed)
+__pycache__/
+*.pyc
