@@ -1,0 +1,22 @@
+name: HipHipHip weekly digest
+
+on:
+  schedule:
+    # 07:00 UTC Monday = 08:00 Africa/Lagos, Mondays.
+    # (On Monday both the daily and weekly flows fire - that's fine; two posts.)
+    - cron: "0 7 * * 1"
+  workflow_dispatch: {}   # lets you run it by hand from the Actions tab to test
+
+jobs:
+  post:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Post weekly digest
+        run: python post_digest.py --window 7d
+        env:
+          POSTHOG_API_KEY: ${{ secrets.POSTHOG_API_KEY }}
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
