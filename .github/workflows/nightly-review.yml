@@ -1,0 +1,22 @@
+name: HipHipHip nightly review
+
+on:
+  schedule:
+    # 22:00 UTC = 23:00 Africa/Lagos (11pm), every day.
+    # GitHub cron is UTC only and can be delayed a few minutes under load.
+    - cron: "0 22 * * *"
+  workflow_dispatch: {}   # run by hand from the Actions tab to test
+
+jobs:
+  post:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Post nightly review
+        run: python nightly_review.py
+        env:
+          POSTHOG_API_KEY: ${{ secrets.POSTHOG_API_KEY }}
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
