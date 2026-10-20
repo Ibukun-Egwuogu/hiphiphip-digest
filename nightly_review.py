@@ -94,7 +94,7 @@ def build_payload(metrics):
         f"*{c_drop} didn't*   <{PLAYLISTS['contrib']}|watch drop-offs>"
     )
     friction_line = (
-        f"*Friction:* {rage} rage-click · {dead} dead-click sessions today\n"
+        f"*Friction:* {rage} rage-click · {dead} dead-click sessions in the last 24h\n"
         f"Watch: <{PLAYLISTS['rage']}|Rage> · "
         f"<{PLAYLISTS['dead']}|Dead clicks> · "
         f"<{PLAYLISTS['console']}|Console errors>"
@@ -107,7 +107,7 @@ def build_payload(metrics):
         {"type": "divider"},
         {"type": "section", "text": {"type": "mrkdwn", "text": friction_line}},
         {"type": "context", "elements": [
-            {"type": "mrkdwn", "text": f"{lagos_date()} · counts are for today · via PostHog"}
+            {"type": "mrkdwn", "text": f"{lagos_date()} · counts are for the last 24 hours · via PostHog"}
         ]},
     ]
     return {"blocks": blocks}
